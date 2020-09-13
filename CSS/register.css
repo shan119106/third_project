@@ -1,0 +1,85 @@
+.container , .admin{
+	display: none;
+}
+.register_user{
+  width:600px;
+  height:auto;
+  background: transparent;
+  border:none;
+  outline: none;
+  color:#fff;
+  font-size: 15px;
+  margin-bottom: 10px;
+  background: rgb(0,0,0,0.8);
+  margin: auto;
+  color :white;
+  font-size: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-70%);
+  text-align: center;
+
+}
+form{
+	text-align: center;
+	
+}
+input{
+	width: 350px;
+	border:none;
+	height: 30px;
+	line-height: 20px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid black;
+}
+#submit{
+	text-align: center;
+	font-size: 16px;
+	width: 80px;
+	margin-left: 280px;
+	background-color: #ffb31a;
+	color: #fff;
+	font-weight: 10px;
+	
+}
+
+p{
+	margin-top: 30px;
+	font-size: 16px;
+
+}
+#login{
+	color:#3399ff;
+}
+.password_details{
+	display: none;
+	line-height:20px;
+	font-size: 16px;
+	text-align: left;
+	padding-left: 150px;
+
+}
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: white;
+}
+
+.invalid:before {
+  position: relative;
+  left: -30px;
+  content: "✖";
+}
