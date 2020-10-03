@@ -9,7 +9,7 @@
   background: url(CSS/images/index_back.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 350px;
-  overflow-y:scroll;
+  overflow:hidden;
   scroll-behavior: smooth;
   
 
@@ -88,7 +88,7 @@ i{
 			<ul>
 				<li><a href="Sindex.php"><i class='fas fa-shopping-bag' style='font-size:36px; margin-right:30px;'></i><br>PRODUCTS</a></li>
 				<li><a href="account.php" class="login"><i class='fas fa-user-alt' style='font-size:36px; margin-right:25px;'></i><br>ACCOUNT</a></li>
-				<li><a href="Statistics.php"><i class="fa fa-line-chart" style="font-size:36px; margin-right:20px;"></i><br>STATISTICS</a></li>
+				<li><a href="statistics.php"><i class="fa fa-line-chart" style="font-size:36px; margin-right:20px;"></i><br>STATISTICS</a></li>
 				<li><a href="logout.php"><i class="fa fa-sign-out" style="font-size:36px;  margin-right:10px;"></i><br>LOGOUT</a></li>
 			</ul>
 			</nav>

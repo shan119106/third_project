@@ -17,33 +17,14 @@
 </head>
 <body>
 <?php
-include("db_connect.php");
- session_start();
- $username =$_SESSION['username'];
- $query ="SELECT * FROM add_to_cart WHERE user_name ='$username'";
- $result =mysqli_query($db,$query);
- while($run =mysqli_fetch_assoc($result)){
-  $prod_id =$run['product_id'];
-  $date =date("Y-m-d") ;
-  $query="SELECT * FROM products WHERE prod_id='$prod_id' LIMIT 1";
-  $row =mysqli_fetch_assoc(mysqli_query($db,$query));
-  $admin_name =$row['admin_name'];
-  $query ="INSERT INTO orders (user_name,product_id,order_date,admin_name) VALUES('$username','$prod_id','$date','$admin_name')";
-  $row=mysqli_query($db,$query);
-}
- $query ="DELETE FROM add_to_cart WHERE user_name ='$username'";
- $result =mysqli_query($db,$query);
- ?>
-<?php
 include("bheader.php");
 ?>
-
 <div class="container">
 	<div class="row justify-content-center">
 		<table class="table text-center">
 			<tr>
 				<td colspan="7">
-					<h4 class="text-center text-warning m-0">Ordered</h4>
+					<h4 class="text-center text-warning m-0">Your Orders</h4>
 				</td>
 			</tr>
 			<tr>
@@ -55,18 +36,22 @@ include("bheader.php");
 			</tr>
 			<tbody>
 			  <?php
+			   include("db_connect.php");
+			   session_start();
+			   $username =$_SESSION['username'];
 			   $query ="SELECT * from orders WHERE user_name ='$username'";
 			   $result =mysqli_query($db,$query);
 			   while($run =mysqli_fetch_assoc($result)){
-			   $date=$run['order_date'];
+			   $date =date_create($run['order_date']);
+			   
 			   	$query ="SELECT * FROM products WHERE prod_id ='{$run['product_id']}' LIMIT 1";
-			   	$row = mysqli_fetch_assoc(mysqli_query($db,$query));
+			   	$row = mysqli_fetch_assoc(mysqli_query($db,$query));			   
 			   	?>
 			   	<tr>
 			   		<td><?php echo $row['name'] ?></td>
 			   		<td><i class="fa fa-rupee" style="font-size:16px"></i><?php echo number_format($row['prod_price'],2); ?></td>
 			   		<td>1</td>
-			   		<td><?php echo $date; ?></td>
+			   		<td><?php echo date_format($date,'d/m/Y'); ?></td>
 			   	</tr>
 			   	<?php
 			   }
@@ -74,7 +59,7 @@ include("bheader.php");
 			   ?>
 			</tbody>
 			<tr>
-				<td colspan="1">
+				<td colspan="4">
 					<a href="bindex.php" class="btn btn-warning" style="color: #ffffff;">Go Back</a>
 				</td>
 				

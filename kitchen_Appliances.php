@@ -41,3 +41,21 @@
 			?>
 			</div>
 		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".addToCart").click(function(e){
+  				var form =$(this).closest(".form-submit");
+		  		var pid=form.find(".pid").val();
+		  		e.preventDefault();
+		  		$.ajax({
+		  			url: 'addToCart.php',
+		  			method:'post',
+		  			data: {pid:pid},
+		  			success:function(response){
+		  				alert(response);
+		  			}
+
+  		});
+  	});
+			});
+		</script>

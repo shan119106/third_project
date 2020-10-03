@@ -9,8 +9,8 @@
   background: url(CSS/images/index_back.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 350px;
-  overflow-y:scroll;
-  scroll-behavior: smooth;
+  width: 100%;
+  overflow:hidden;
   
 
 }
@@ -23,6 +23,7 @@
 }
 html{
 	scroll-behavior: smooth;
+
 }
 	
 img{
@@ -33,11 +34,12 @@ img{
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 99%;
+	width: 100%;
 	height: 350px;
 	overflow: hidden;
 	background-color: rgba(0,0,0,0.6);
 	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
 }
 nav{
 	flex: 1;
@@ -89,6 +91,7 @@ i{
 				<li><a href="bindex.php"><i class='fas fa-shopping-bag' style='font-size:36px'></i><br>PRODUCTS</a></li>
 				<li><a href="account.php" class="login"><i class='fas fa-user-alt' style='font-size:36px'></i><br>ACCOUNT</a></li>
 				<li><a href="Cart.php" class="login"><i class="fa fa-shopping-cart" style="font-size:48px;"></i></a></li>
+				<li><a href="bborder.php" class="login"><i class="fa fa-cart-arrow-down" style="font-size:36px"></i></a></li>
 				<li><a href="logout.php" class="login"><i class="fa fa-sign-out" style="font-size:36px;  margin-right:10px;"></i><br>LOGOUT</a></li>
 
 			</ul>

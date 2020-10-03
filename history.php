@@ -23,7 +23,6 @@ $pid =$_POST['pid'];
 			   $result =mysqli_query($db,$query);
 			   while($run =mysqli_fetch_assoc($result)){
 			   $date=$run['order_date'];
-			   echo $date;
 			   $user =$run['user_name'];
 			   	$query ="SELECT * FROM user WHERE username ='$user'  LIMIT 1";
 			   	$row = mysqli_fetch_assoc(mysqli_query($db,$query));

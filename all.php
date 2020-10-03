@@ -1,7 +1,7 @@
 <?php include("db_connect.php");
 ?>
 <div class="col-lg-9 search_products">
-		<div class="tab-pane fade show active" id ="v-pills-All" role="tabpanel">
+		<div class="tab-pane" id ="v-pills-All" role="tabpanel">
 			<div class="row mt-2 pb-3 ">
 			<?php
 				
@@ -38,3 +38,21 @@
 			?>
 			</div>
 		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".addToCart").click(function(e){
+  				var form =$(this).closest(".form-submit");
+		  		var pid=form.find(".pid").val();
+		  		e.preventDefault();
+		  		$.ajax({
+		  			url: 'addToCart.php',
+		  			method:'post',
+		  			data: {pid:pid},
+		  			success:function(response){
+		  				alert(response);
+		  			}
+
+  		});
+  	});
+			});
+		</script>

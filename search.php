@@ -1,15 +1,15 @@
 <?php
 include("db_connect.php");
 if($_POST['query']){
-
+	
 	$query1=$_POST['query'];
 	$query="SELECT * FROM products WHERE name LIKE '%$query1%' OR description LIKE '%$query1%'";
 	$result=mysqli_query($db,$query);
 	if(mysqli_num_rows($result)>0){
-		while ($row=mysqli_fetch_array($result)) {
+		while ($row=mysqli_fetch_array($result)){
 			?>
-			<div class="col-lg-3">
-							<div class="card-deck">
+			<div class="col-lg-7">
+							<div class="card-deck" style="width:800px">
 								<div class="card p-2 border-secondary mb-2">
 									<img src="<?php echo $row['img1']; ?>" class="card-img-top" style="height: 200px;width: 200px;align-self: center">
 									<div class="card-body p-1">
@@ -36,9 +36,10 @@ if($_POST['query']){
 	}
 
 	else{
-		$output='<p>product  not found</p>';
-		echo $output;
-	}
+		?>
+		<p>product not found</p>
+		<?php
+		}
 	
 	
 }

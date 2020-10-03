@@ -1,4 +1,6 @@
- <?php include('db_connect.php');?>
+ <?php include('db_connect.php');
+ 
+ ?>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -10,7 +12,7 @@
 		<div class="panel panel-default">
 			<div id="panel-heading">
 				<h3>
-					<i class="fa a-money fa-w"></i>Add Product
+					<i class="fa a-money fa-w"></i>&nbsp&nbsp&nbsp&nbspAdd Product
 				</h3>
 			</div><!--panel-heading end -->
 			<div class="panel-body">
@@ -51,9 +53,11 @@
 					<div class="form-group">
 						
 						<input type="submit" name="product_add" value="Add" class="btn-warning">
+					
 					</div>
 					
-				</form>				
+				</form>	
+						
 			</div>
 		</div>
 		
@@ -61,7 +65,6 @@
 	
 </div>
 <?php
-
 
 session_start();
 $username =$_SESSION['username'];
@@ -82,29 +85,33 @@ if(isset($_POST['product_add'])){
 	$allowed=array('png','jpg','jpeg');
 	$fileDestination='';
 	if(in_array($fileActualExt,$allowed)){
-		if($fileSize<1000000){
+		if($fileSize<1000000000){
 			$fileNameNew=uniqid('',true).".".$fileActualExt;
 			$fileDestination='post/'.$fileNameNew;
 			move_uploaded_file($fileTmp,$fileDestination);
-			
+			$query= "INSERT INTO products (name,description,img1,admin_name,prod_price,prod_quantity,prod_id,prod_category) VALUES ('$product_name','$product_desc','$fileDestination','$username','$product_price','$product_quantity','$product_id','$product_cat')";
+			$result =mysqli_query($db,$query);
+ 			if($result){
+			header("location: Sindex.php");
+			}
+
+
 			
 		}
 		else{
-			echo "your file is too big";
+			echo"<script>alert('file too big')</script>";
+			header("location: Sindex.php");
+			
 		}
 	}
 	else{
-		echo "file cannot be uploaded";
+		echo"<script>alert('not uploaded')";
+		header("location: Sindex.php");
+		echo "</script>";
+		
 	}
 
 
-$query= "INSERT INTO products (name,description,img1,admin_name,prod_price,prod_quantity,prod_id,prod_category) VALUES ('$product_name','$product_desc','$fileDestination','$username','$product_price','$product_quantity','$product_id','$product_cat')";
-$result =mysqli_query($db,$query);
- if($result){
 
-echo "<script> alert('inserted succesfully')</script>";
-header("location: Sindex.php");
 }
-
-$product_final=array();
-}
+?>

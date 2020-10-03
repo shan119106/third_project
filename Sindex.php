@@ -75,9 +75,9 @@
 					?>
 
 					
-						<div class="col-lg-3">
-							<div class="card-deck">
-								<div class="card p-2 border-secondary mb-2">
+						<div class="col-lg-7">
+							<div class="card-deck" style="width:800px; padding-left: 250px;margin-left: 20px;">
+								<div class="card p-4 border-secondary mb-2">
 									<img src="<?php echo $row['img1']; ?>" class="card-img-top" style="height: 200px;width: 200px;align-self: center">
 									<div class="card-body p-1">
 										<h4 class="card-title text-center text-body"><?php echo $row['name']; ?></h4>

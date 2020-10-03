@@ -66,6 +66,21 @@
 			height: 48px;
 
 		}
+		.All,.women,.Men,.Kitchen_Appliances,.Home_Appliances,.Electronics{
+			height: 50px;
+			color: #ffcc00;
+			border:none;
+			border-bottom:1px solid #d9d9d9;
+			border-radius: 0px;
+			background-color: #ffffff;
+		}
+		.active{
+			background-color: #ffcc00;
+			color: #ffffff;
+			border:none;
+			margin: none;
+			outline: none;
+		}
 		
 	</style>
 </head>
@@ -92,12 +107,12 @@
 		<div class="row">
 		<div class="col-lg-3">
 				<div class="nav flex-column nav-pills" id ="v-pills-tab" role="tablist" aria-orientation="vertical">
-					<button  class="All" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="color: #ffcc00;">All</button>
-					<button  class="women" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="color: #ffcc00;">Women</button>
-					<button  class="Men" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="color: #ffcc00;">Men</button>
-					<button  class="Kitchen_Appliances" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="color: #ffcc00;">Kitchen Appliances</button>
-					<button  class="Home_Appliances" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="color:#ffcc00;">Home Appliances</button>
-					<button class="Electronics" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="color: #ffcc00;">Electronics</button>
+					<button  class="  All" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="">All</button>
+					<button  class="  women" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="">Women</button>
+					<button  class=" Men" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="">Men</button>
+					<button  class=" Kitchen_Appliances" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="">Kitchen Appliances</button>
+					<button  class=" Home_Appliances" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="">Home Appliances</button>
+					<button class=" Electronics" id="v-pills-home-tab" data-toggle="pill" role="tab" id="sideBar" style="">Electronics</button>
 				</div>
 			</div>
 			<div class="col-lg-9">
@@ -128,15 +143,13 @@
 
   		});
   	});
-  	$(".search_bar").click(function(){
-  		
+  	$(".search_bar").click(function(e){
   		var query=$('.context').val();
-  		alert(query);
   		e.preventDefault();
   		$.ajax({
-  			url: 'search.php',
+  			url:'search.php',
   			method:'post',
-  			data: {query:query},
+  			data:{query:query},
   			success:function(response){
   				$(".products").html(response);
   			}
@@ -145,21 +158,33 @@
 	});
 	$(".All").click(function(){
 		$(".products").load('all.php');
+		$("button").removeClass("active");
+		$(this).addClass("active");
 	});
 	$(".women").click(function(){
 		$(".products").load('women.php');
+		$("button").removeClass("active");
+		$(this).addClass("active");
 	});
 	$(".Men").click(function(){
 		$(".products").load('men.php');
+		$("button").removeClass("active");
+		$(this).addClass("active");
 	});
 	$(".Kitchen_Appliances").click(function(){
 		$(".products").load('kitchen_Appliances.php');
+		$("button").removeClass("active");
+		$(this).addClass("active");
 	});
 	$(".Home_Appliances").click(function(){
 		$(".products").load('home_Appliances.php');
+		$("button").removeClass("active");
+		$(this).addClass("active");
 	});
 	$(".Electronics").click(function(){
 		$(".products").load('Electronics.php');
+		$("button").removeClass("active");
+		$(this).addClass("active");
 	});
 
   
